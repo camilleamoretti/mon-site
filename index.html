@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F5EFE6;
+  --warm-bg:#FAF6F0;
+  --terracotta:#B5603A;
+  --terracotta-light:#D4845E;
+  --terracotta-pale:#F0DDD3;
+  --caramel:#8B5E3C;
+  --dark:#2C1F14;
+  --mid:#6B4C35;
+  --muted:#9C7B65;
+  --border:#E8D8CC;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--warm-bg);color:var(--dark);font-size:16px;line-height:1.7}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,246,240,0.95);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .logo{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--dark);letter-spacing:0.02em}
+nav a.cta-nav{font-size:13px;font-weight:500;color:var(--terracotta);text-decoration:none;border:1px solid var(--terracotta);padding:8px 20px;border-radius:2px;letter-spacing:0.04em;text-transform:uppercase;transition:all 0.2s}
+nav a.cta-nav:hover{background:var(--terracotta);color:#fff}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;overflow:hidden}
+.hero-content{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem 6rem 5rem;background:var(--warm-bg)}
+.hero-eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1.5rem}
+.hero h1{font-family:var(--serif);font-size:52px;font-weight:300;line-height:1.15;color:var(--dark);margin-bottom:2rem}
+.hero h1 em{font-style:italic;color:var(--terracotta)}
+.hero-sub{font-size:17px;line-height:1.75;color:var(--mid);max-width:420px;margin-bottom:3rem}
+.btn-primary{display:inline-block;background:var(--terracotta);color:#fff;text-decoration:none;padding:14px 36px;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;transition:background 0.2s}
+.btn-primary:hover{background:var(--caramel)}
+.hero-image{position:relative;overflow:hidden}
+.hero-image img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+section{padding:6rem 5rem}
+.section-label{font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem}
+h2.section-title{font-family:var(--serif);font-size:42px;font-weight:300;line-height:1.2;color:var(--dark);margin-bottom:2rem}
+h2.section-title em{font-style:italic;color:var(--terracotta)}
+
+.constat{background:var(--cream);border-top:0.5px solid var(--border)}
+.constat-inner{max-width:720px}
+.constat-intro{font-size:18px;line-height:1.8;color:var(--mid);margin-bottom:2.5rem}
+.constat-list{list-style:none;display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.constat-list li{display:flex;align-items:flex-start;gap:1rem;font-size:16px;color:var(--mid)}
+.constat-list li::before{content:'—';color:var(--terracotta);flex-shrink:0;margin-top:2px}
+.constat-conclusion{font-size:15px;color:var(--muted);font-style:italic;border-left:2px solid var(--terracotta-light);padding-left:1.25rem}
+
+.ce-que-je-fais{background:var(--warm-bg)}
+.cqjf-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:3rem}
+.cqjf-text p{font-size:16px;color:var(--mid);line-height:1.8;margin-bottom:1.5rem}
+.arrows{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.arrows li{display:flex;align-items:flex-start;gap:1rem;font-size:16px;color:var(--dark)}
+.arrows li span.arr{color:var(--terracotta);font-weight:500;flex-shrink:0}
+.approach-note{margin-top:2rem;font-size:14px;color:var(--muted);font-style:italic;border-left:2px solid var(--border);padding-left:1rem}
+
+.pour-qui{background:var(--terracotta-pale)}
+.pq-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.pq-card{background:#fff;border:0.5px solid var(--border);border-radius:2px;padding:2rem 1.5rem}
+.pq-card h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--dark);margin-bottom:0.75rem}
+.pq-card p{font-size:14px;color:var(--mid);line-height:1.7}
+.pq-common{margin-top:2.5rem;font-size:15px;color:var(--mid);font-style:italic;text-align:center}
+
+.programme{background:var(--cream);border-top:0.5px solid var(--border)}
+.prog-intro{font-size:17px;color:var(--mid);max-width:600px;margin-bottom:3.5rem;line-height:1.8}
+.prog-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.prog-step{border:0.5px solid var(--border);background:var(--warm-bg);padding:2rem}
+.step-num{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--terracotta-pale);line-height:1;margin-bottom:0.5rem}
+.step-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--dark);margin-bottom:1.25rem}
+.step-items{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.step-items li{font-size:14px;color:var(--mid);line-height:1.6;padding-left:1rem;position:relative}
+.step-items li::before{content:'·';position:absolute;left:0;color:var(--terracotta)}
+
+.livrables{background:var(--warm-bg)}
+.livrables-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.livrables-image{border-radius:2px;overflow:hidden;aspect-ratio:4/5}
+.livrables-image img{width:100%;height:100%;object-fit:cover}
+.livrables-content h2{margin-bottom:2rem}
+.livrables-list{list-style:none;display:flex;flex-direction:column;gap:1rem;margin-bottom:3rem}
+.livrables-list li{display:flex;align-items:flex-start;gap:1rem;font-size:15px;color:var(--mid)}
+.livrables-list li::before{content:'*';color:var(--terracotta);font-weight:500;flex-shrink:0}
+
+.preuve{background:var(--cream);border-top:0.5px solid var(--border)}
+.preuve-intro{font-size:18px;line-height:1.8;color:var(--mid);max-width:680px;margin-bottom:1rem}
+.preuve-chiffre{font-family:var(--serif);font-size:72px;font-weight:300;color:var(--terracotta);line-height:1;margin-bottom:1.5rem}
+.preuve-sub{font-size:16px;color:var(--mid);max-width:620px;margin-bottom:2.5rem;line-height:1.8}
+.refs{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:2rem}
+.ref-tag{font-size:13px;color:var(--muted);border:0.5px solid var(--border);padding:6px 14px;border-radius:2px;background:var(--warm-bg)}
+.testimonial-placeholder{margin-top:3rem;background:var(--terracotta-pale);border-left:3px solid var(--terracotta-light);padding:2rem;font-family:var(--serif);font-size:20px;font-style:italic;color:var(--dark);line-height:1.6}
+.testimonial-placeholder span{display:block;margin-top:1rem;font-family:var(--sans);font-size:13px;font-style:normal;color:var(--muted);letter-spacing:0.04em}
+
+.offres{background:var(--dark)}
+.offres .section-label{color:var(--terracotta-light)}
+.offres h2.section-title{color:#F5EFE6}
+.offres h2.section-title em{color:var(--terracotta-light)}
+.offres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.offre-card{border:0.5px solid rgba(255,255,255,0.15);padding:2.5rem 2rem;position:relative}
+.offre-card.featured{border-color:var(--terracotta-light);background:rgba(181,96,58,0.08)}
+.offre-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--terracotta);color:#fff;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:4px 16px;white-space:nowrap}
+.offre-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--terracotta-light);margin-bottom:1rem}
+.offre-price{font-family:var(--serif);font-size:42px;font-weight:300;color:#F5EFE6;line-height:1;margin-bottom:0.5rem}
+.offre-price span{font-size:16px}
+.offre-desc{font-size:14px;color:rgba(245,239,230,0.65);line-height:1.7;margin-bottom:1.75rem;margin-top:1rem}
+.offre-details{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem}
+.offre-details li{font-size:13px;color:rgba(245,239,230,0.75);display:flex;gap:0.75rem;align-items:flex-start}
+.offre-details li::before{content:'–';color:var(--terracotta-light);flex-shrink:0}
+.btn-offre{display:block;text-align:center;border:1px solid rgba(255,255,255,0.3);color:#F5EFE6;text-decoration:none;padding:12px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;transition:all 0.2s}
+.btn-offre:hover{background:var(--terracotta);border-color:var(--terracotta)}
+
+.cta-final{background:var(--terracotta);padding:6rem 5rem;text-align:center}
+.cta-final blockquote{font-family:var(--serif);font-size:36px;font-weight:300;font-style:italic;color:#fff;line-height:1.3;max-width:700px;margin:0 auto 3rem}
+.btn-white{display:inline-block;background:#fff;color:var(--terracotta);text-decoration:none;padding:16px 40px;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;transition:all 0.2s}
+.btn-white:hover{background:var(--cream)}
+
+footer{background:var(--dark);padding:2rem 5rem;display:flex;align-items:center;justify-content:space-between;border-top:0.5px solid rgba(255,255,255,0.1)}
+footer p{font-size:13px;color:rgba(245,239,230,0.4)}
+footer .logo-f{font-family:var(--serif);font-size:18px;color:rgba(245,239,230,0.6)}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Camille Amoretti</span>
+  <a href="https://calendly.com/camille-amoretti/30min" class="cta-nav" target="_blank">Planifier un échange</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Personal Branding · Leadership · Visibilité</p>
+    <h1>Passez d'une expertise reconnue…<br>à une <em>autorité visible</em> et influente.</h1>
+    <p class="hero-sub">Votre expertise est solide. Elle est reconnue en interne, par vos pairs, vos équipes. Mais aujourd'hui, cela ne suffit plus.</p>
+    <a href="https://calendly.com/camille-amoretti/30min" class="btn-primary" target="_blank">Planifier un échange</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://camille-amoretti.carrd.co/assets/images/image02.jpg" alt="Camille Amoretti">
+  </div>
+</section>
+
+<section class="constat">
+  <div class="constat-inner">
+    <p class="section-label">Le constat</p>
+    <h2 class="section-title">Les meilleurs ne sont pas<br>toujours les <em>plus visibles.</em></h2>
+    <p class="constat-intro">Aujourd'hui, on attend des dirigeants et des experts qu'ils prennent la parole, qu'ils incarnent, qu'ils soient identifiés. Mais dans les faits :</p>
+    <ul class="constat-list">
+      <li>leur expertise reste souvent peu visible au-delà de leur cercle immédiat</li>
+      <li>leur positionnement n'est pas clair pour les bonnes audiences</li>
+      <li>leur prise de parole manque de structure ou d'impact</li>
+    </ul>
+    <p class="constat-conclusion">Résultat : des opportunités manquées, une influence limitée, et une image en décalage avec leur niveau réel.</p>
+  </div>
+</section>
+
+<section class="ce-que-je-fais">
+  <p class="section-label">Ce que je fais</p>
+  <h2 class="section-title">Je transforme une expertise<br>en <em>autorité visible.</em></h2>
+  <div class="cqjf-grid">
+    <div class="cqjf-text">
+      <p>J'accompagne des dirigeants, des entrepreneurs et des experts à faire de leur visibilité un levier d'opportunités concrètes.</p>
+      <p>Mon approche est à la fois stratégique, éditoriale et très opérationnelle. Je ne travaille pas sur la surface — je travaille sur le fond, la cohérence et l'alignement.</p>
+      <p class="approach-note">L'objectif n'est pas d'être visible pour être visible, mais de devenir identifiable, crédible et légitime auprès des bonnes personnes.</p>
+    </div>
+    <div>
+      <ul class="arrows">
+        <li><span class="arr">→</span> Clarifier votre positionnement</li>
+        <li><span class="arr">→</span> Structurer une image d'autorité</li>
+        <li><span class="arr">→</span> Développer une prise de parole cohérente et impactante</li>
+        <li><span class="arr">→</span> Faire de votre visibilité un levier d'opportunités</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="pour-qui">
+  <p class="section-label">Pour qui</p>
+  <h2 class="section-title">Une expertise forte,<br>encore <em>sous-exploitée.</em></h2>
+  <div class="pq-cards">
+    <div class="pq-card">
+      <h3>Les dirigeants</h3>
+      <p>Qui souhaitent incarner davantage leur rôle et être identifiés comme une référence dans leur secteur.</p>
+    </div>
+    <div class="pq-card">
+      <h3>Les experts</h3>
+      <p>Reconnus en interne, qui veulent gagner en visibilité externe et transformer leur crédibilité en influence.</p>
+    </div>
+    <div class="pq-card">
+      <h3>Les entrepreneurs</h3>
+      <p>Qui veulent structurer leur image, clarifier leur discours et générer des opportunités business par leur présence.</p>
+    </div>
+  </div>
+  <p class="pq-common">Tous ont un point commun : une expertise forte, mais encore sous-exploitée en termes de visibilité.</p>
+</section>
+
+<section class="programme">
+  <p class="section-label">Le programme</p>
+  <h2 class="section-title">Un dispositif complet<br>en <em>quatre étapes.</em></h2>
+  <p class="prog-intro">Clarifier votre positionnement, structurer votre message, déployer une visibilité cohérente et multiplier les opportunités business et médiatiques.</p>
+  <div class="prog-steps">
+    <div class="prog-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Diagnostic</div>
+      <ul class="step-items">
+        <li>Audit complet de votre réputation en ligne (Google, réseaux sociaux, médias)</li>
+        <li>Analyse de votre positionnement perçu vs souhaité</li>
+        <li>Identification des forces et zones de confusion</li>
+        <li>Identification des opportunités inexploitées et risques réputationnels</li>
+        <li>Benchmark de vos pairs et personnalités inspirantes</li>
+      </ul>
+    </div>
+    <div class="prog-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Stratégie</div>
+      <ul class="step-items">
+        <li>Clarification du positionnement : angle différenciant, territoires d'expression</li>
+        <li>Stratégie éditoriale : formats, tonalité, fréquence, piliers</li>
+        <li>Création de votre stratégie d'autorité : articles, tribunes, prises de position</li>
+        <li>Stratégie d'opportunités : conférences, podcasts, panels</li>
+      </ul>
+    </div>
+    <div class="prog-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Prise de parole</div>
+      <ul class="step-items">
+        <li>Création du media kit speaker : bio courte, bio longue, sujets de conférence</li>
+        <li>Recommandations pour vous positionner comme intervenant(e)</li>
+        <li>Production de 10 posts LinkedIn à forte valeur ajoutée</li>
+        <li>4 articles ou tribunes d'autorité</li>
+        <li>Optimisation complète de votre profil LinkedIn</li>
+      </ul>
+    </div>
+    <div class="prog-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Exposition</div>
+      <ul class="step-items">
+        <li>Plan de visibilité sur 90 jours</li>
+        <li>Développement stratégique du réseau pour construire un cercle d'influence</li>
+        <li>Analyse des performances des contenus et ajustements éditoriaux</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="livrables">
+  <div class="livrables-inner">
+    <div class="livrables-image">
+      <img src="https://camille-amoretti.carrd.co/assets/images/image03.jpg" alt="">
+    </div>
+    <div class="livrables-content">
+      <p class="section-label">Ce que vous recevrez</p>
+      <h2 class="section-title">Des <em>livrables concrets,</em><br>prêts à déployer.</h2>
+      <ul class="livrables-list">
+        <li>Plateforme de leadership personnel (positionnement + piliers)</li>
+        <li>Stratégie éditoriale complète</li>
+        <li>10 contenus réseaux sociaux prêts à publier</li>
+        <li>4 tribunes d'autorité</li>
+        <li>Media kit speaker</li>
+        <li>Liste priorisée des événements, podcasts et médias incontournables</li>
+        <li>Pitch presse et plan de visibilité trimestriel</li>
+      </ul>
+      <a href="https://calendly.com/camille-amoretti/30min" class="btn-primary" target="_blank">Planifier un échange</a>
+    </div>
+  </div>
+</section>
+
+<section class="preuve">
+  <p class="section-label">Ils m'ont fait confiance</p>
+  <div class="preuve-chiffre">50+</div>
+  <p class="preuve-intro">dirigeants, entrepreneurs et experts accompagnés dans la structuration de leur positionnement et de leur visibilité.</p>
+  <p class="preuve-sub">Parmi eux : des dirigeants de grands groupes, des patrons d'ONG, des entrepreneurs, des experts reconnus dans leur domaine. Tous avaient une expertise forte. Tous avaient besoin de la rendre plus visible, plus lisible et plus impactante.</p>
+  <div class="testimonial-placeholder">
+    « [Témoignage client à venir — une citation concrète sur les résultats obtenus.] »
+    <span>— Prénom Nom, Titre, Entreprise</span>
+  </div>
+  <div class="refs">
+    <span class="ref-tag">Action contre la faim</span>
+    <span class="ref-tag">Altran</span>
+    <span class="ref-tag">BNP Paribas</span>
+    <span class="ref-tag">Enowee</span>
+    <span class="ref-tag">IAD</span>
+    <span class="ref-tag">Solstice108</span>
+  </div>
+</section>
+
+<section class="offres">
+  <p class="section-label">Les offres</p>
+  <h2 class="section-title" style="color:#F5EFE6">Un accompagnement<br><em>à la hauteur de vos enjeux.</em></h2>
+  <div class="offres-grid">
+    <div class="offre-card">
+      <p class="offre-label">Essentiel</p>
+      <div class="offre-price">4 500 <span>€ HT</span></div>
+      <p class="offre-desc">Accompagnement sur-mesure pour structurer votre leadership personnel et transformer votre expertise en leviers d'opportunités concrètes.</p>
+      <ul class="offre-details">
+        <li>Durée : 12 semaines</li>
+        <li>Programme complet en 4 étapes</li>
+        <li>Tous les livrables inclus</li>
+      </ul>
+      <a href="https://calendly.com/camille-amoretti/30min" class="btn-offre" target="_blank">Planifier un échange</a>
+    </div>
+    <div class="offre-card featured">
+      <div class="offre-badge">Recommandé</div>
+      <p class="offre-label">Leadership</p>
+      <div class="offre-price">7 500 <span>€ HT</span></div>
+      <p class="offre-desc">De l'expertise à l'influence durable — un accompagnement stratégique pour transformer votre personal branding en système de croissance mesurable.</p>
+      <ul class="offre-details">
+        <li>Offre Essentiel incluse</li>
+        <li>Durée : 6 mois</li>
+        <li>Accompagnement personnalisé en continu</li>
+      </ul>
+      <a href="https://calendly.com/camille-amoretti/30min" class="btn-offre" target="_blank">Planifier un échange</a>
+    </div>
+    <div class="offre-card">
+      <p class="offre-label">Équipes</p>
+      <div class="offre-price">2 000 <span>€ HT / pers.</span></div>
+      <p class="offre-desc">Formation intensive pour transformer vos équipes commerciales en ambassadeurs LinkedIn crédibles et générateurs de leads.</p>
+      <ul class="offre-details">
+        <li>2 jours de formation + suivi collectif 2 mois</li>
+        <li>3–4 personnes : 2 500 € HT / pers.</li>
+        <li>5–8 personnes : 2 000 € HT / pers.</li>
+      </ul>
+      <a href="https://calendly.com/camille-amoretti/30min" class="btn-offre" target="_blank">Planifier un échange</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <blockquote>"Devenez la référence que l'on écoute et que l'on suit dans votre secteur."</blockquote>
+  <a href="https://calendly.com/camille-amoretti/30min" class="btn-white" target="_blank">Planifier un échange</a>
+</section>
+
+<footer>
+  <span class="logo-f">Camille Amoretti</span>
+  <p>© 2025 Camille Amoretti – Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
